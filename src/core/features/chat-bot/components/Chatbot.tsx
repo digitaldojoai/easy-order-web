@@ -361,7 +361,6 @@ function ChatBotS2() {
                                       setChat([
                                         ...chat,
                                         { from: "user", files: selectedFiles },
-                                        { from: "assistant", loading: true },
                                       ])
                                     );
                                     setSelectedFiles([]);
