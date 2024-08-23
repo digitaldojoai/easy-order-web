@@ -270,24 +270,24 @@ function Index({ baseUrl, excelFile, loadingMessage, lastMessageIndex }: any) {
           </div>
         );
       })}
-      {loadingMessage && (
-        <div>
-          {" "}
-          <div className="flex items-center gap-x-2">
-            <div className="inline-flex h-8 w-8 flex-shrink-0 overflow-hidden rounded-full border-2 border-white ">
-              <img src="/images/avatar/bots/1.jpg" alt="" />
-            </div>
-            <h6 className="text-sm font-bold capitalize text-slate-600 ">
-              easy order
-            </h6>
+
+      <div className={`${loadingMessage ? "" : "hidden"}`}>
+        {" "}
+        <div className="flex items-center gap-x-2">
+          <div className="inline-flex h-8 w-8 flex-shrink-0 overflow-hidden rounded-full border-2 border-white ">
+            <img src="/images/avatar/bots/1.jpg" alt="" />
           </div>
-          <iframe
-            src="https://lottie.host/embed/b65204e5-fb50-4f78-8429-73c5a3f75521/DmiHyMR5jd.json"
-            className="ml-8 h-12 w-12"
-            loading="lazy"
-          ></iframe>
+          <h6 className="text-sm font-bold capitalize text-slate-600 ">
+            easy order
+          </h6>
         </div>
-      )}
+        <iframe
+          src="https://lottie.host/embed/b65204e5-fb50-4f78-8429-73c5a3f75521/DmiHyMR5jd.json"
+          className="ml-8 h-12 w-12"
+          loading="lazy"
+        ></iframe>
+      </div>
+
       <div ref={BottomDiv} className="w-full text-right">
         {excelFile && (
           <Button
