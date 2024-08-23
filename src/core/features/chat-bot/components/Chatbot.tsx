@@ -327,12 +327,12 @@ function ChatBotS2() {
                             <ProfileImage />
                           </div>
                         </div>
-                        <div className="flex flex-col justify-center relative max-lg:bottom-16 lg:bottom-4  pt-4 max-md:px-[0]  xl:px-[5rem] 2xl:px-[15rem] h-full  ">
+                        <div className="flex flex-col justify-center relative max-lg:bottom-8 lg:bottom-4  pt-4 max-md:px-[0]  xl:px-[5rem] 2xl:px-[15rem] h-full  ">
                           <div className="pb-7 ">
                             <h2 className="pb-5 w-max bg-gradient-to-r from-blue-600 to-[#028947] bg-clip-text text-3xl xl:text-5xl font-bold text-transparent ">
                               Hi there, Ryaan
                             </h2>
-                            <h4 className="max-lg:text-md lg:text-lg text-slate-600 pb-11">
+                            <h4 className="max-lg:text-md lg:text-lg text-slate-600 pb-8 md:pb-11">
                               To ensure we process your order quickly, please
                               upload a picture or take a picture of your order
                               sheet. This allows us to process it instantly.

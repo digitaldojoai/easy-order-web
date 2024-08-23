@@ -27,7 +27,7 @@ function NoChatComp({
                 className="cursor-pointer rounded-md border border-slate-200 bg-[#edf1fd] px-4 py-3  "
                 onClick={() => fileInputRef.current.click()}
               >
-                <div className="flex flex-col items-center justify-center gap-4 text-slate-600 text-6xl">
+                <div className="flex flex-col items-center justify-center gap-4 text-slate-600 text-5xl md:text-6xl">
                   <FontAwesomeIcon icon={faFileArrowUp} />
                   <div>
                     <h6 className="mb-1 text-lg font-bold text-slate-600 ">
@@ -46,7 +46,7 @@ function NoChatComp({
                   fileInputRef.current.click();
                 }}
               >
-                <div className="flex flex-col items-center justify-center gap-4 text-slate-600 text-6xl">
+                <div className="flex flex-col items-center justify-center gap-4 text-slate-600 text-5xl md:text-6xl">
                   <FontAwesomeIcon icon={faCamera} />
                   <div>
                     <h6 className="mb-1 text-lg font-bold text-slate-600 ">
