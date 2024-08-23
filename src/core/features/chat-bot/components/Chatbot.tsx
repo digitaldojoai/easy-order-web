@@ -219,8 +219,8 @@ function ChatBotS2() {
       ) : (
         fetchAuthIsSuccess && (
           <Section className="">
-            <Container className={"pt-12"}>
-              <div className=" flex max-h-[calc(100vh-4rem)] min-h-[calc(100vh-4rem)] gap-x-8">
+            <Container className={"max-md:pt-12"}>
+              <div className=" flex max-md:max-h-[calc(100vh-4rem)] max-md:min-h-[calc(100vh-4rem)] h-[calc(100vh-2rem)] min-h-[95dvh] gap-x-8">
                 {/* {listVisibility && mobile && (
                 <div
                   onClick={() => {
