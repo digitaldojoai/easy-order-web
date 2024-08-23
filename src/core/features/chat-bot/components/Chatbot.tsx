@@ -63,8 +63,8 @@ function ChatBotS2() {
   useEffect(() => {
     if (languages && languages.length) {
       setSelectedCount({
-        name: languages[0].label,
-        value: languages[0].value,
+        name: "English",
+        value: "english",
       });
     }
   }, [languages]);
