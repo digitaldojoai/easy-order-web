@@ -10,7 +10,7 @@ function Logo({
   return (
     <div className={twMerge("flex items-center", rootClassName)}>
       <img
-        className={twMerge("h-6 ", className, classNameDark)}
+        className={twMerge("h-8 ", className, classNameDark)}
         src="/LOGOS.png"
       />
     </div>

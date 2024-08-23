@@ -284,6 +284,7 @@ function Index({ baseUrl, excelFile, loadingMessage, lastMessageIndex }: any) {
           <iframe
             src="https://lottie.host/embed/b65204e5-fb50-4f78-8429-73c5a3f75521/DmiHyMR5jd.json"
             className="ml-8 h-12 w-12"
+            loading="lazy"
           ></iframe>
         </div>
       )}

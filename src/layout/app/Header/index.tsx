@@ -24,7 +24,7 @@ function Header({ mobile, visibility, setVisibility, className }: any) {
       <Container>
         <div className="w-100 flex items-center justify-between">
           <div className="flex items-center gap-x-2">
-            <div className="-ms-1.5 xl:hidden">
+            {/* <div className="-ms-1.5 xl:hidden">
               <button
                 onClick={() => {
                   setVisibility(true);
@@ -33,7 +33,7 @@ function Header({ mobile, visibility, setVisibility, className }: any) {
               >
                 <Bars3Icon className="h-5" />
               </button>
-            </div>
+            </div> */}
             <Link className="flex-shrink-0" href="/app">
               <Logo />
             </Link>
