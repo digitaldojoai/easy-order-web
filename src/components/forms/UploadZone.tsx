@@ -19,7 +19,7 @@ function UploadZone({ text, ...props }: any) {
     },
   });
 
-  const thumbs = files.map((file) => (
+  const thumbs = files.map((file: any) => (
     <div
       className="inline-flex border border-slate-200 dark:border-slate-800 p-1 w-28 rounded"
       key={file.name}
@@ -37,7 +37,8 @@ function UploadZone({ text, ...props }: any) {
 
   useEffect(() => {
     // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
-    return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
+    return () =>
+      files.forEach((file: any) => URL.revokeObjectURL(file.preview));
   }, []);
 
   return (

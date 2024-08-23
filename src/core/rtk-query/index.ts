@@ -15,7 +15,7 @@ export const mainApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: baseUrl,
     headers: {
-      Authorization: `${localStorage?.getItem("token")}`,
+      Authorization: `${Cookies.get("token")}`,
     },
   }),
 

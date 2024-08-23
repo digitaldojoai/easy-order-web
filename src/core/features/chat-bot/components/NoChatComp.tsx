@@ -31,7 +31,7 @@ function NoChatComp({
                   />
                   <div>
                     <h6 className="mb-1 text-base font-bold text-slate-600 ">
-                      Upload File
+                      Upload a File
                     </h6>
                   </div>
                 </div>

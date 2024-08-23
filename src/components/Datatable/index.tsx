@@ -19,7 +19,7 @@ function DataTable({ columns, tableData }: any) {
   const [globalFilter, setGlobalFilter] = useState("");
 
   // Update the state when input changes
-  const handleFilterChange = (e) => {
+  const handleFilterChange = (e: any) => {
     const value = e.target.value || undefined;
     setGlobalFilter(value);
   };

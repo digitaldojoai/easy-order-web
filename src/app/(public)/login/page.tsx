@@ -1,15 +1,13 @@
 "use client";
 import React from "react";
 
-import { Label, Input, Button } from "@/components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebookF, faGoogle } from "@fortawesome/free-brands-svg-icons";
-import axios from "axios";
-import { baseUrl } from "@/utilities/constants";
-import qs from "qs";
-import Layout from "@/layout/provider";
-import Section from "@/layout/global/Section";
+import { Button, Input, Label } from "@/components";
 import Container from "@/layout/global/Container";
+import Section from "@/layout/global/Section";
+import { baseUrl } from "@/utilities/constants";
+import axios from "axios";
+import qs from "qs";
+import Cookies from "js-cookie";
 
 function LoginPage() {
   const [username, setUsername] = React.useState("");
@@ -34,7 +32,7 @@ function LoginPage() {
       })
       .then((res) => {
         console.log(res);
-        window.localStorage.setItem("token", `Bearer ${res.data.access_token}`);
+        Cookies.set("token", `Bearer ${res.data.access_token}`);
         window.location.href = "/chatbot";
       })
       .catch((err) => {
@@ -84,7 +82,7 @@ function LoginPage() {
                   id="password"
                   placeholder="password"
                   type="password"
-                  onChange={(e) => {
+                  onChange={(e: any) => {
                     setPassword(e.target.value);
                   }}
                 />
