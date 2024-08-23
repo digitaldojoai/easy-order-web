@@ -320,16 +320,16 @@ function ChatBotS2() {
                           <div className="col-span-3 flex items-center justify-end max-sm:hidden">
                             <img
                               src={"/logo.png"}
-                              className="w-[15rem] max-sm:w-[10rem]"
+                              className="w-[12rem] max-sm:w-[10rem]"
                             />
                           </div>
                           <div className="col-span-2 flex items-start justify-end max-sm:col-span-5 max-sm:hidden">
                             <ProfileImage />
                           </div>
                         </div>
-                        <div className="flex flex-col justify-center relative max-lg:bottom-16 lg:bottom-24  pt-4 max-md:px-[0]  xl:px-[5rem] 2xl:px-[15rem] h-full  ">
+                        <div className="flex flex-col justify-center relative max-lg:bottom-16 lg:bottom-4  pt-4 max-md:px-[0]  xl:px-[5rem] 2xl:px-[15rem] h-full  ">
                           <div className="pb-7 ">
-                            <h2 className="pb-5 w-max bg-gradient-to-r from-blue-600 to-pink-500 bg-clip-text text-3xl xl:text-5xl font-bold text-transparent ">
+                            <h2 className="pb-5 w-max bg-gradient-to-r from-blue-600 to-[#028947] bg-clip-text text-3xl xl:text-5xl font-bold text-transparent ">
                               Hi there, Ryaan
                             </h2>
                             <h4 className="max-lg:text-md lg:text-lg text-slate-600 pb-11">
