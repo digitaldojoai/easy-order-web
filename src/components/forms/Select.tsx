@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import classNames from "classnames";
-import { Listbox } from "@headlessui/react";
+import {
+  Listbox,
+  ListboxButton,
+  ListboxOption,
+  ListboxOptions,
+} from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 function Select({
   size,
@@ -12,7 +17,7 @@ function Select({
   disabled,
 }: any) {
   const compClass = classNames({
-    "flex w-full rounded-md text-start bg-white  border px-3 text-slate-600  border-slate-200  focus:border-slate-200 focus:shadow-none focus:outline-none":
+    "flex w-full rounded-md text-start bg-white  border px-3 text-slate-600  border-slate-200  focus:border-slate-200 focus:shadow-none focus:outline-none py-4 px-[0.85rem]":
       true,
     ["py-2 text-sm/[1.125rem]"]: !size,
     [`${className}`]: className,
@@ -23,16 +28,16 @@ function Select({
   return (
     <div className="relative">
       <Listbox value={selected} onChange={onChange} disabled={disabled}>
-        <Listbox.Button className={compClass} id={id}>
-          <span className="block truncate">{selected.name}</span>
+        <ListboxButton className={compClass} id={id}>
+          <span className="block truncate ">{selected.name}</span>
           <span className="pointer-events-none absolute inset-y-0 end-0 flex items-center pe-3">
             <ChevronDownIcon className="h-4 w-4 text-gray-400 transition-all ui-open:rotate-180 " />
           </span>
-        </Listbox.Button>
-        <Listbox.Options className="absolute z-[100000] max-h-[12rem] w-full overflow-y-auto rounded-md border border-slate-200 bg-white ">
+        </ListboxButton>
+        <ListboxOptions className="absolute z-[100000] max-h-[12rem] w-full overflow-y-auto rounded-md border border-slate-200 bg-white ">
           {options?.map((option: any, index: any) => {
             return (
-              <Listbox.Option
+              <ListboxOption
                 key={index}
                 value={option.value}
                 disabled={option.disabled && option.disabled}
@@ -43,10 +48,10 @@ function Select({
                 }
               >
                 {option.label}
-              </Listbox.Option>
+              </ListboxOption>
             );
           })}
-        </Listbox.Options>
+        </ListboxOptions>
       </Listbox>
     </div>
   );

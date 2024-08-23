@@ -15,6 +15,7 @@ import { useGetThreadsQuery } from "../redux/rtk";
 import { useDispatch } from "react-redux";
 import { setBroken, setChat, setToggle } from "../redux/redux";
 import { useAppSelector } from "@/core/StoreWrapper";
+import ProfileImage from "@/components/ProfileImage";
 const themes = {
   light: {
     sidebar: {
@@ -139,7 +140,7 @@ function SideBar({ chatWindow, mobile, refetch, listVisibility }: any) {
       }}
       className=" z-20 h-[calc(100vh-2rem)]"
     >
-      {data?.length ? (
+      {data ? (
         <Sidebar
           collapsed={collapsed}
           toggled={toggle}
@@ -179,6 +180,9 @@ function SideBar({ chatWindow, mobile, refetch, listVisibility }: any) {
                   marginTop: "32px",
                 }}
               >
+                <div className="col-span-2 flex items-start justify-start max-sm:col-span-5 pb-4 sm:hidden">
+                  <ProfileImage toTheRight />
+                </div>
                 <div
                   className="mb-8 flex cursor-pointer justify-between items-center gap-4 "
                   // onClick={() => {
@@ -203,49 +207,63 @@ function SideBar({ chatWindow, mobile, refetch, listVisibility }: any) {
                     dispatch(setChat([]));
                   }}
                 >
-                  <PlusCircleIcon className="h-4" />
-                  <span>New Conversation</span>
+                  <PlusCircleIcon className="h-6" />
+                  <span className="">New Conversation</span>
                 </button>
               </div>
-              {data?.map((item: any, index: any) => {
-                return (
-                  <div key={index}>
-                    {item.title && (
-                      <div
-                        style={{
-                          padding: "0 24px",
-                          marginBottom: "8px",
-                          marginTop: "32px",
-                        }}
-                      >
-                        <p
+              {data.length ? (
+                data?.map((item: any, index: any) => {
+                  return (
+                    <div key={index}>
+                      {item.title && (
+                        <div
                           style={{
-                            opacity: 0.7,
-                            letterSpacing: "0.5px",
+                            padding: "0 24px",
+                            marginBottom: "8px",
+                            marginTop: "32px",
                           }}
                         >
-                          {item.thread_id}
-                        </p>
-                      </div>
-                    )}
+                          <p
+                            style={{
+                              opacity: 0.7,
+                              letterSpacing: "0.5px",
+                            }}
+                          >
+                            {item.thread_id}
+                          </p>
+                        </div>
+                      )}
 
-                    <Menu menuItemStyles={menuItemStyles} key={index}>
-                      <MenuItem
-                        style={{
-                          fontWeight: 500,
-                          color: id === `${item.id}` ? "var(--primary)" : "",
-                          backgroundColor:
-                            id === `${item.id}`
-                              ? themes["light"].menu.hover.backgroundColor
-                              : "",
-                        }}
-                      >
-                        <ChatItem data={item} mobile={mobile} count={index} />{" "}
-                      </MenuItem>
-                    </Menu>
-                  </div>
-                );
-              })}
+                      <Menu menuItemStyles={menuItemStyles} key={index}>
+                        <MenuItem
+                          style={{
+                            fontWeight: 500,
+                            color: id === `${item.id}` ? "var(--primary)" : "",
+                            backgroundColor:
+                              id === `${item.id}`
+                                ? themes["light"].menu.hover.backgroundColor
+                                : "",
+                          }}
+                        >
+                          <ChatItem data={item} mobile={mobile} count={index} />{" "}
+                        </MenuItem>
+                      </Menu>
+                    </div>
+                  );
+                })
+              ) : (
+                <Menu menuItemStyles={menuItemStyles}>
+                  <MenuItem
+                    style={{
+                      fontWeight: 500,
+                      color: "var(--primary)",
+                      textAlign: "center",
+                    }}
+                  >
+                    No Conversations
+                  </MenuItem>
+                </Menu>
+              )}
             </div>
             <div
               className="cursor-pointer p-4 sm:p-6 bg-white w-full"

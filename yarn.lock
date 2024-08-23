@@ -416,6 +416,19 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@lottiefiles/dotlottie-react@^0.8.9":
+  version "0.8.9"
+  resolved "https://registry.yarnpkg.com/@lottiefiles/dotlottie-react/-/dotlottie-react-0.8.9.tgz#5674754b2af8989d553903606f011768b1f60eac"
+  integrity sha512-J+pFtN2vRw6gAVb0xsz5JWZfHxwSEIGCIHx8ZFvOEyv4LRBzIeUbkSwuSB6tS4SFG508g4Xj8ra2z3R+Yktxxw==
+  dependencies:
+    "@lottiefiles/dotlottie-web" "0.31.0"
+    debounce "^2.0.0"
+
+"@lottiefiles/dotlottie-web@0.31.0":
+  version "0.31.0"
+  resolved "https://registry.yarnpkg.com/@lottiefiles/dotlottie-web/-/dotlottie-web-0.31.0.tgz#a1901ab4e1d351bbf59dc7b7478857908f7aa9fc"
+  integrity sha512-cb3+FZEDRpTuDeD8xafJPOeHEX5ijF+riwsugkZWH/2fhF4RfprCebx/C2Y+YhGMsNp6/hH6docYGP9K09yHXQ==
+
 "@next/env@14.2.6":
   version "14.2.6"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-14.2.6.tgz#4f8ab1ca549a90bf0c83454b798b0ebae7098b15"
@@ -2323,6 +2336,11 @@ date-fns@^3.3.1:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-3.6.0.tgz#f20ca4fe94f8b754951b24240676e8618c0206bf"
   integrity sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==
+
+debounce@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/debounce/-/debounce-2.1.0.tgz#eab25eaf254b848fcfccffbde75bdaa44842caa3"
+  integrity sha512-OkL3+0pPWCqoBc/nhO9u6TIQNTK44fnBnzuVtJAbp13Naxw9R6u21x+8tVTka87AhDZ3htqZ2pSSsZl9fqL2Wg==
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"

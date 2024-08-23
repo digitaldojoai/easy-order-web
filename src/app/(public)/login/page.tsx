@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Button, Input, Label } from "@/components";
 import Container from "@/layout/global/Container";
@@ -8,39 +8,65 @@ import { baseUrl } from "@/utilities/constants";
 import axios from "axios";
 import qs from "qs";
 import Cookies from "js-cookie";
+import { toast } from "sonner";
 
 function LoginPage() {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [submit, setSubmit] = React.useState(false);
 
   const handleLogin = async () => {
-    const data = {
-      grant_type: "",
-      username: "admin", // Replace with your actual username
-      password: "admin", // Replace with your actual password
-      scope: "",
-      client_id: "",
-      client_secret: "",
+    const toastId = toast.loading("Logging in...");
+    console.log("login hit");
+    if (!submit)
+      await axios
+        .post(
+          `${baseUrl}/auth/token`,
+          qs.stringify({
+            username,
+            password,
+          }),
+          {
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+              Accept: "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          setSubmit(false);
+          toast.dismiss(toastId);
+          toast.success("Login successful");
+          Cookies.set("token", `Bearer ${res.data.access_token}`);
+          window.location.href = "/chat-bot";
+        })
+        .catch((err) => {
+          setSubmit(false);
+          toast.dismiss(toastId);
+          toast.error("Invalid credentials");
+        });
+  };
+
+  const ButtonRef = React.useRef(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        (ButtonRef.current as HTMLButtonElement | null)?.click();
+        setSubmit(true);
+      }
     };
 
-    await axios
-      .post(`${baseUrl}/auth/token`, qs.stringify(data), {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          Accept: "application/json",
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        Cookies.set("token", `Bearer ${res.data.access_token}`);
-        window.location.href = "/chat-bot";
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
-    <Section className=" py-10 h-screen">
+    <Section className="py-10 h-screen">
       <Container className="h-full">
         <div className="-mx-3 flex justify-center h-full items-center">
           <div className="w-full px-3 xs:w-4/5 sm:w-3/5 md:w-1/2 lg:w-2/5 xl:w-1/3">
@@ -54,7 +80,7 @@ function LoginPage() {
                 </p>
               </div>
               <div className="py-2">
-                <Label htmlFor="emial-address" className="mb-2">
+                <Label htmlFor="email-address" className="mb-2">
                   Username
                 </Label>
                 <Input
@@ -71,12 +97,6 @@ function LoginPage() {
                   className="mb-2 w-full items-center justify-between"
                 >
                   Password
-                  {/* <a
-                      className="text-xs text-blue-500 hover:text-blue-700"
-                      href="#"
-                    >
-                      Forgot
-                    </a> */}
                 </Label>
                 <Input
                   id="password"
@@ -89,6 +109,7 @@ function LoginPage() {
               </div>
               <div className="pt-3">
                 <Button
+                  ref={ButtonRef}
                   block
                   className="bg-blue-600 text-white hover:bg-blue-800"
                   onClick={handleLogin}

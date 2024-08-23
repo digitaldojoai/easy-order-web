@@ -1,4 +1,8 @@
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCamera,
+  faFileArrowUp,
+  faTrashCan,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Label, Select } from "../../../../components";
@@ -23,14 +27,10 @@ function NoChatComp({
                 className="cursor-pointer rounded-md border border-slate-200 bg-[#edf1fd] px-4 py-3  "
                 onClick={() => fileInputRef.current.click()}
               >
-                <div className="flex items-center justify-center gap-4">
-                  <img
-                    src="/upload.png"
-                    className="w-[4rem]"
-                    alt="Upload Icon"
-                  />
+                <div className="flex flex-col items-center justify-center gap-4 text-slate-600 text-6xl">
+                  <FontAwesomeIcon icon={faFileArrowUp} />
                   <div>
-                    <h6 className="mb-1 text-base font-bold text-slate-600 ">
+                    <h6 className="mb-1 text-lg font-bold text-slate-600 ">
                       Upload a File
                     </h6>
                   </div>
@@ -46,14 +46,10 @@ function NoChatComp({
                   fileInputRef.current.click();
                 }}
               >
-                <div className="flex items-center justify-center gap-4">
-                  <img
-                    src="/camera.png"
-                    className="w-[4rem]"
-                    alt="Camera Icon"
-                  />
+                <div className="flex flex-col items-center justify-center gap-4 text-slate-600 text-6xl">
+                  <FontAwesomeIcon icon={faCamera} />
                   <div>
-                    <h6 className="mb-1 text-base font-bold text-slate-600 ">
+                    <h6 className="mb-1 text-lg font-bold text-slate-600 ">
                       Take a picture
                     </h6>
                   </div>
@@ -109,9 +105,9 @@ function NoChatComp({
         )}
       </div>
       <div>
-        <div className="w-full ">
+        <div className="w-full pt-11 ">
           <div className="pt-3">
-            <Label htmlFor="Count" className="mb-4">
+            <Label htmlFor="Count" className="mb-4 text-lg pb-3">
               Choose your output language
             </Label>
             <Select

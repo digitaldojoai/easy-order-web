@@ -7,8 +7,11 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import React from "react";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
-function ProfileImage() {
+function ProfileImage({ toTheRight }: { toTheRight?: boolean }) {
+  const router = useRouter();
   return (
     <li className="relative inline-flex">
       <Dropdown>
@@ -23,9 +26,15 @@ function ProfileImage() {
           leaveFrom="transform scale-100 opacity-100"
           leaveTo="transform scale-95 opacity-0"
         >
-          <Dropdown.Items className="absolute end-0 top-10 w-48 rounded-lg border border-slate-200 bg-white shadow-sm ">
+          <Dropdown.Items
+            className={`absolute ${
+              toTheRight ? " start-0 " : " end-0 "
+            } top-10 w-48 rounded-lg border border-slate-200 bg-white shadow-sm z-10`}
+          >
             <div className="flex items-center p-4">
-              <div className="inline-flex h-10 w-10 flex-shrink-0 overflow-hidden rounded-full outline outline-2 outline-offset-2 outline-slate-300 ">
+              <div
+                className={`inline-flex h-10 w-10 flex-shrink-0 overflow-hidden rounded-full outline outline-2 outline-offset-2 outline-slate-300 `}
+              >
                 <img src="/images/avatar/a.jpg" alt="" />
               </div>
               <div className="ms-4">
@@ -46,13 +55,16 @@ function ProfileImage() {
               </li>
 
               <li>
-                <Link
-                  href="/login"
+                <button
+                  onClick={() => {
+                    Cookies.remove("token");
+                    router.push("/login");
+                  }}
                   className="flex px-4 py-2 text-xs font-bold text-slate-500 transition-all hover:text-blue-600 "
                 >
                   <PowerIcon className="me-2 w-4" />
                   <span>Logout</span>
-                </Link>
+                </button>
               </li>
             </ul>
           </Dropdown.Items>

@@ -23,7 +23,7 @@ import { useDispatch } from "react-redux";
 import { useAppSelector } from "@/core/StoreWrapper";
 import { setChat, setToggle } from "../redux/redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 function ChatBotS2() {
   const router = useRouter();
@@ -211,7 +211,7 @@ function ChatBotS2() {
   const BottomDiv = useRef(null);
   console.log("this is the chat", chat);
   return (
-    <div title="Chat Bot">
+    <div>
       {fetchAuthIsLoading ? (
         <div className="h-screen">
           <Loader />
@@ -219,8 +219,8 @@ function ChatBotS2() {
       ) : (
         fetchAuthIsSuccess && (
           <Section className="">
-            <Container className={""}>
-              <div className=" flex h-[calc(100vh-2rem)] min-h-[95dvh] gap-x-8">
+            <Container className={"pt-12"}>
+              <div className=" flex max-h-[calc(100vh-4rem)] min-h-[calc(100vh-4rem)] gap-x-8">
                 {/* {listVisibility && mobile && (
                 <div
                   onClick={() => {
@@ -231,7 +231,7 @@ function ChatBotS2() {
               )} */}
                 <div
                   className={classNames({
-                    "max-sm:hidden max-md:w-[75vh]": !toggle,
+                    "max-sm:hidden max-[640px]:w-[75vh]": !toggle,
 
                     // hidden: !mobile && !listVisibility,
                   })}
@@ -323,16 +323,16 @@ function ChatBotS2() {
                               className="w-[15rem] max-sm:w-[10rem]"
                             />
                           </div>
-                          <div className="col-span-2 flex items-start justify-end max-sm:col-span-5 ">
+                          <div className="col-span-2 flex items-start justify-end max-sm:col-span-5 max-sm:hidden">
                             <ProfileImage />
                           </div>
                         </div>
                         <div className="flex flex-col justify-center relative max-lg:bottom-16 lg:bottom-24  pt-4 max-md:px-[0]  xl:px-[5rem] 2xl:px-[15rem] h-full  ">
                           <div className="pb-7 ">
-                            <h2 className=" w-max bg-gradient-to-r from-blue-600 to-pink-500 bg-clip-text pb-2 text-3xl xl:text-5xl font-bold text-transparent ">
+                            <h2 className="pb-5 w-max bg-gradient-to-r from-blue-600 to-pink-500 bg-clip-text text-3xl xl:text-5xl font-bold text-transparent ">
                               Hi there, Ryaan
                             </h2>
-                            <h4 className="text-md text-slate-600 ">
+                            <h4 className="max-lg:text-md lg:text-lg text-slate-600 pb-11">
                               To ensure we process your order quickly, please
                               upload a picture or take a picture of your order
                               sheet. This allows us to process it instantly.
@@ -386,11 +386,12 @@ function ChatBotS2() {
                             }}
                             value={message}
                             placeholder="Send a message"
-                            className="z-10 w-full rounded-md border border-slate-200 bg-white px-4 py-2.5 text-sm/[1.125rem] text-slate-600 placeholder:text-slate-400 focus:border-blue-200 focus:shadow-none focus:outline-none disabled:bg-slate-100 disabled:text-slate-400 "
+                            className="z-10 w-full rounded-md border border-slate-200 bg-white px-4 py-4 text-sm/[1.125rem] text-slate-600 placeholder:text-slate-400 focus:border-blue-200 focus:shadow-none focus:outline-none disabled:bg-slate-100 disabled:text-slate-400 "
                           />
                           {/* <ButtonIcon className="bg-blue-600 text-white hover:bg-blue-800"> */}
                           <div
                             ref={SendButtonRef}
+                            className="h-full"
                             onClick={() => {
                               if (
                                 (selectedFiles.length && !id) ||
@@ -423,9 +424,12 @@ function ChatBotS2() {
                             }}
                           >
                             <Button
-                              className={`${"bg-blue-600 hover:bg-blue-800"} text-white`}
+                              className={`${"bg-blue-600 hover:bg-blue-800"} text-white h-full px-9 py-[0.8rem] `}
                             >
-                              send
+                              <FontAwesomeIcon
+                                icon={faPaperPlane}
+                                className="text-2xl"
+                              />
                             </Button>
                           </div>
                         </div>
