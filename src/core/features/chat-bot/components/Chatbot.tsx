@@ -327,9 +327,9 @@ function ChatBotS2() {
                             <ProfileImage />
                           </div>
                         </div>
-                        <div className="flex flex-col justify-center  pt-4 max-md:px-[0]  xl:px-[5rem] 2xl:px-[15rem]   ">
+                        <div className="flex flex-col justify-center relative max-lg:bottom-16 lg:bottom-24  pt-4 max-md:px-[0]  xl:px-[5rem] 2xl:px-[15rem] h-full  ">
                           <div className="pb-7 ">
-                            <h2 className="w-max bg-gradient-to-r from-blue-600 to-pink-500 bg-clip-text pb-2 text-3xl font-bold text-transparent">
+                            <h2 className=" w-max bg-gradient-to-r from-blue-600 to-pink-500 bg-clip-text pb-2 text-3xl xl:text-5xl font-bold text-transparent ">
                               Hi there, Ryaan
                             </h2>
                             <h4 className="text-md text-slate-600 ">

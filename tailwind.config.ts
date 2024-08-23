@@ -11,6 +11,11 @@ const config: Config = {
     center: true,
   },
   theme: {
+    fontFamily: {
+      roboto: ["Roboto", "sans-serif"],
+      inter: ["Roboto", "sans-serif"],
+      display: ["Roboto", "sans-serif"],
+    },
     screens: {
       xs: "480px",
       sm: "640px",

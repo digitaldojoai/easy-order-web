@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import StoreWrapper from "@/core/StoreWrapper";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], fallback: ["Roboto", "sans-serif"] });
 
 export const metadata: Metadata = {
   title: "Easy Order",
