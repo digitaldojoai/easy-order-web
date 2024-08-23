@@ -2,32 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html {
+  /* overflow: hidden !important; */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-button {
+  width: 18px;
+  height: 18px;
+}
+::-webkit-scrollbar-thumb {
+  background: #7f7f7f;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7f7f7f;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #7f7f7f;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: 0px none transparent;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: transparent;
+}
+::-webkit-scrollbar-track:active {
+  background: transparent;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.ps-collapsed {
+  width: 0;
+  overflow: hidden;
+  display: none;
+}
+
+/* Optionally hide any toggle button or close icon when collapsed */
+.ps-collapsed {
+  display: none;
+}
+
+.ps-sidebar-container {
+  border: 1px solid #e1e8f0;
+  border-radius: 0.5rem;
+}
+
+/* .css-1j5upme.ps-broken {
+  position: fixed;
+  height: 100%;
+  top: 0px;
+  z-index: 100;
+  left: -500px !important;
+} */
+@media screen and (min-width: 768px) {
+  .ps-sidebar-root {
+    width: 100% !important;
   }
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.css-1nhyy4p {
+  border-right-width: 0 !important;
 }
