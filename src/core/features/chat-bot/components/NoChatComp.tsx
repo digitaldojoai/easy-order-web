@@ -112,9 +112,13 @@ function NoChatComp({
             </Label>
             <Select
               onChange={(e: any) => {
-                setSelectedCount(
-                  LanguageOptions.find((item: any) => item.value === e)
+                const selected = LanguageOptions.find(
+                  (item: any) => item.value === e
                 );
+                setSelectedCount({
+                  name: selected.label,
+                  value: selected.value,
+                });
               }}
               // className={classNames({
               //   "cursor-not-allowed": true,

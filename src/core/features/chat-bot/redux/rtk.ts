@@ -9,7 +9,7 @@ export const extendedApi = mainApi.injectEndpoints({
       query: () => `threads/languages`,
       transformResponse: (response: string[]) => {
         console.log("response", response);
-        return response.map((lang: string) => {
+        return response.sort().map((lang: string) => {
           return {
             label: lang.charAt(0).toUpperCase() + lang.slice(1),
             value: lang,
